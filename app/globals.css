@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 47.9 95.8% 53.1%;
+    --radius: 0.75rem;
+  }
+
+  .light {
+    /* Blue background with soft tone */
+    --background: 210 50% 98%;
+    --foreground: 215 25% 27%;
+
+    /* Card with slightly deeper blue */
+    --card: 210 50% 95%;
+    --card-foreground: 215 25% 27%;
+
+    /* Popover with blue tint */
+    --popover: 210 50% 98%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Emerald primary color */
+    --primary: 160 84% 39%;
+    --primary-foreground: 355 100% 100%;
+
+    /* Soft blue secondary colors */
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 215 25% 27%;
+
+    /* Muted colors with blue undertones */
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 25% 46%;
+
+    /* Accent with emerald tint */
+    --accent: 160 84% 39%;
+    --accent-foreground: 355 100% 100%;
+
+    /* Softer destructive color */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Subtle borders */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 160 84% 39%;
+  }
+}
+
+/* Light theme specific styles with blue and emerald colors */
+.light {
+  color-scheme: light;
+}
+
+.light .noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.01'/%3E%3C/svg%3E");
+}
+
+.light .glass {
+  @apply bg-blue-50/70 backdrop-blur-md border border-blue-100/50;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.light .gradient-text {
+  @apply bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent;
+}
+
+/* Light theme scrollbar - blue colors */
+.light ::-webkit-scrollbar-track {
+  @apply bg-blue-50;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  @apply bg-blue-200 rounded-full;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-300;
+}
+
+/* Light theme specific button styles */
+.light .pulse-glow {
+  animation: pulse-glow-light 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-light {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+  }
+}
+
+/* Softer focus styles for light theme */
+.light .focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-emerald-400 ring-offset-2 ring-offset-blue-50;
+}
+
+/* Light theme hero section background */
+.light .hero-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(224, 242, 254, 0.8) 0%,
+    rgba(186, 230, 253, 0.4) 50%,
+    rgba(224, 242, 254, 0.8) 100%
+  );
+}
+
+/* Light theme section backgrounds */
+.light .section-bg-alt {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.8) 0%, rgba(219, 234, 254, 0.6) 100%);
+}
+
+/* Light theme card hover effects */
+.light .card-hover:hover {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Light theme terminal styles */
+.light .terminal-bg {
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+}
+
+.light .terminal-header {
+  background: rgba(241, 245, 249, 0.9);
+  border-bottom: 1px solid rgba(203, 213, 225, 0.3);
+}
+
+.light .terminal-text {
+  color: #334155;
+}
+
+.light .terminal-prompt {
+  color: #10b981;
+}
+
+.light .terminal-success {
+  color: #059669;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Smooth animations */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism effect */
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+  transition: all 0.3s ease;
+}
+
+/* Custom focus styles */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-yellow-400 ring-offset-2 ring-offset-gray-900;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-responsive {
+    @apply text-sm;
+  }
+}
+
+/* Mobile-first responsive design */
+@media (min-width: 640px) {
+  .sm-responsive {
+    @apply text-base;
+  }
+}
+
+@media (min-width: 768px) {
+  .md-responsive {
+    @apply text-lg;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg-responsive {
+    @apply text-xl;
+  }
+}
+
+/* Timeline specific styles */
+.timeline-dot {
+  @apply relative z-10;
+}
+
+.timeline-dot::before {
+  content: "";
+  @apply absolute inset-0 rounded-full animate-ping;
+}
+
+/* Mobile timeline adjustments */
+@media (max-width: 640px) {
+  .timeline-mobile {
+    @apply ml-8;
+  }
+
+  .timeline-dot-mobile {
+    @apply left-2;
+  }
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Card animations */
+.card-entrance {
+  animation: cardEntrance 0.6s ease-out forwards;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Badge animations */
+.badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
