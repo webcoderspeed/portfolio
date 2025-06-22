@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/lib/theme-context"
 import { Toaster } from "@/components/ui/toaster"
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} noise-overlay`} suppressHydrationWarning>
-        
+        <Analytics />
         <ThemeProvider defaultTheme="dark" storageKey="webcoderspeed-theme">
           {children}
           <Toaster />
