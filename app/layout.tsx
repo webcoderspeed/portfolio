@@ -40,12 +40,6 @@ export default function RootLayout({
         className={`${inter.className} noise-overlay`}
         suppressHydrationWarning
       >
-        <meta
-          google-site-verification="7ufo3gWPYyDLnN_hr5QBIS99Oahded6PbLpWc2PHKHw"
-          name="google-site-verification"
-          content="7ufo3gWPYyDLnN_hr5QBIS99Oahded6PbLpWc2PHKHw"
-        />
-
         <Analytics />
         <ThemeProvider defaultTheme="dark" storageKey="webcoderspeed-theme">
           {children}

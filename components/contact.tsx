@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react"
 import { useTheme } from "@/lib/theme-context"
 import { useToast } from "@/hooks/use-toast"
+import { GITHUB_URL, LINKEDIN_URL } from "@/constants"
 
 export function Contact() {
   const {toast } = useToast()
@@ -173,7 +174,7 @@ export function Contact() {
 
             <div className="flex gap-3 sm:gap-4">
               <motion.a
-                href="https://linkedin.com"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, rotate: 360 }}
@@ -187,7 +188,7 @@ export function Contact() {
                 />
               </motion.a>
               <motion.a
-                href="https://github.com"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, rotate: 360 }}
